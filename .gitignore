@@ -1,0 +1,13 @@
+.git/
+.classpath
+.settings/
+target/classes
+target/generated-sources
+target/generated-test-sources
+target/maven-archiver
+target/maven-status
+target/surefire-reports
+target/test-classes
+triprequestmanager-1.0
+triprequestmanager-1.0.jar.original
+*.class

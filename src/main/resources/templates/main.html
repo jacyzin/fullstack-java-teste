@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header">
+<meta charset="UTF-8" />
+</head>
+<body>
+	<div class="container h-100">
+		<h3 class="align-middle">Solicitações de Viagem</h3>
+		<div class="row border border-success">
+			<div class="col-md-2 text-center">Nome do Passageiro</div>
+			<div class="col-md-2 text-center">Cia Aérea</div>
+			<div class="col-md-2 text-center">Data/Hora Saída</div>
+			<div class="col-md-2 text-center">Data/Hora Chegada</div>
+			<div class="col-md-2 text-center">Cidade Origem</div>
+			<div class="col-md-2 text-center">Cidade Destino</div>
+		</div>
+		<div class="row">
+			<th:block th:each="solicitacaoViagem : ${solicitacoes}">
+				<th:block th:each="passageiro : ${solicitacaoViagem.passageiroSolicitacaoViagem}">
+					<div class="col-md-2 text-center" th:text="${passageiro.nomeCompleto}"></div>
+				</th:block>
+				<th:block th:each="aereo: ${solicitacaoViagem.aereo}">
+					<div class="col-md-2 text-center" th:text="${aereo.source}"></div>
+					<th:block th:each="aereoSeguimento : ${aereo.aereoSeguimento}">
+						<div class="col-md-2 text-center" th:text="${aereoSeguimento.dataSaida}"></div>
+						<div class="col-md-2 text-center" th:text="${aereoSeguimento.dataChegada}"></div>
+						<div class="col-md-2 text-center" th:text="${aereoSeguimento.cidadeOrigem}"></div>
+						<div class="col-md-2 text-center" th:text="${aereoSeguimento.cidadeDestino}"></div>
+					</th:block>
+				</th:block>
+			</th:block>
+		</div>
+	</div>
+	<div th:replace="fragments/script"></div>
+</body>
+</html>
