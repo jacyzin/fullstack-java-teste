@@ -1,7 +1,7 @@
 # Solicitações de Viagem
 O projeto Trip Request Manager é uma aplicação desenvolvida utilizando o framework Spring Boot com a finalidade de consumir dados em um servidor webservice e persistir os dados obtidos em um banco de dados.
 
-# Ecosistema e Arquitetura
+# Ecossistema e Arquitetura
 Ao acessar a página principal da aplicação através do navegador é feito uma requisição no servidor webservice a fim de obter as solicitações de viagem aprovadas nos últimos 3 meses, em seguida esses dados são convertidos em entidades relacionais e são enviados para uma fila de mensagens do serviço ActiveMQ, em seguida esses dados recebem um refinamento e são exibidos em um grid na tela.
 
 Em paralelo existe um serviço que fica "escutando" a fila de mensagens do ActiveMQ, ao detectar que um novo registro foi recebido nesta fila o mesmo é preparado e persistido em um banco de dados MySQL.
